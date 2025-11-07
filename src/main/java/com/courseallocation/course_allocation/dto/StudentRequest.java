@@ -21,12 +21,13 @@ public class StudentRequest {
     @Email(message = "Email should be valid")
     private String email;
 
-    @NotBlank(message = "Department is required")
-    private String department;
+    private String department; // Optional - department code
 
     @NotNull(message = "Year is required")
     @Min(value = 1, message = "Year must be at least 1")
     private Integer year;
+
+    private String program; // Optional - program/major name
 
     @NotBlank(message = "PIN is required")
     private String pin;

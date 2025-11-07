@@ -10,11 +10,10 @@ public class CourseRequest {
     @NotBlank(message = "Course code is required")
     private String courseCode;
 
-    @NotBlank(message = "Course name is required")
-    private String courseName;
+    @NotBlank(message = "Course title is required")
+    private String title;
 
-    @NotBlank(message = "Department is required")
-    private String department;
+    private String description;
 
     @NotNull(message = "Level is required")
     @Min(value = 1, message = "Level must be at least 1")
@@ -28,12 +27,13 @@ public class CourseRequest {
     @Min(value = 1, message = "Max capacity must be at least 1")
     private Integer maxCapacity;
 
-    private String description;
+    private Long departmentId; // Optional department ID
 
-    @NotBlank(message = "Instructor is required")
-    private String instructor;
+    private Long assignedLecturerId; // Optional lecturer ID
 
     @NotNull(message = "Semester ID is required")
     private Long semesterId;
+
+    private String academicYear; // e.g., "2024/2025"
 }
 

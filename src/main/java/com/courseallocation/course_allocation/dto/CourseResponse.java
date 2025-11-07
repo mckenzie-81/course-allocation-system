@@ -12,16 +12,20 @@ import lombok.NoArgsConstructor;
 public class CourseResponse {
     private Long id;
     private String courseCode;
-    private String courseName;
-    private String department;
+    private String title;
+    private String description;
     private Integer level;
     private Integer credits;
     private Integer maxCapacity;
     private Integer currentEnrollment;
-    private String description;
-    private String instructor;
+    private String departmentCode;
+    private String departmentName;
+    private Long assignedLecturerId;
+    private String lecturerName;
     private Long semesterId;
     private String semesterCode;
+    private String academicYear;
+    private String status; // CourseStatus enum value
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

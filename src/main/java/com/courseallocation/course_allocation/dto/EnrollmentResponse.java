@@ -12,13 +12,12 @@ import lombok.NoArgsConstructor;
 public class EnrollmentResponse {
     private Long id;
     private Long studentId;
-    private String studentName;
     private String studentIdNumber;
     private Long courseId;
     private String courseCode;
     private String courseName;
-    private String status;
+    private String status; // EnrollmentStatus enum value
+    private String grade;
     private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 }
 
