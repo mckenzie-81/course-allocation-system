@@ -1,0 +1,73 @@
+package com.courseallocation.course_allocation.controller;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.courseallocation.course_allocation.dto.ApiResponse;
+import com.courseallocation.course_allocation.dto.CourseResponse;
+import com.courseallocation.course_allocation.dto.CourseSelectionRequest;
+import com.courseallocation.course_allocation.dto.EnrollmentResponse;
+import com.courseallocation.course_allocation.dto.StudentCourseSummary;
+import com.courseallocation.course_allocation.service.CourseSelectionService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+
+// @RestController - Temporarily disabled
+@RequestMapping("/api/student/courses")
+@RequiredArgsConstructor
+@Tag(name = "Course Selection", description = "APIs for students to select and manage their courses")
+public class CourseSelectionController {
+
+    private final CourseSelectionService courseSelectionService;
+
+    @GetMapping("/available")
+    @Operation(summary = "Get available courses for student", description = "Retrieve courses available for the student based on their program and year level")
+    public ResponseEntity<ApiResponse<List<CourseResponse>>> getAvailableCourses(
+            @RequestParam Long studentId,
+            @RequestParam Long semesterId) {
+        List<CourseResponse> response = courseSelectionService.getAvailableCoursesForStudent(studentId, semesterId);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Available courses retrieved successfully", response));
+    }
+
+    @PostMapping("/select")
+    @Operation(summary = "Select a course", description = "Enroll student in a course with validation for credit and course limits")
+    public ResponseEntity<ApiResponse<EnrollmentResponse>> selectCourse(
+            @RequestParam Long studentId,
+            @Valid @RequestBody CourseSelectionRequest request) {
+        EnrollmentResponse response = courseSelectionService.selectCourse(studentId, request.getCourseId());
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(new ApiResponse<>(true, "Course selected successfully", response));
+    }
+
+    @DeleteMapping("/drop/{enrollmentId}")
+    @Operation(summary = "Drop a course", description = "Remove a course from student's enrollment")
+    public ResponseEntity<ApiResponse<Void>> dropCourse(
+            @RequestParam Long studentId,
+            @PathVariable Long enrollmentId) {
+        courseSelectionService.dropCourse(studentId, enrollmentId);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Course dropped successfully", null));
+    }
+
+    @GetMapping("/summary")
+    @Operation(summary = "Get student course summary", description = "Retrieve student's enrollment summary including total credits and courses")
+    public ResponseEntity<ApiResponse<StudentCourseSummary>> getStudentCourseSummary(
+            @RequestParam Long studentId,
+            @RequestParam Long semesterId) {
+        StudentCourseSummary response = courseSelectionService.getStudentCourseSummary(studentId, semesterId);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Course summary retrieved successfully", response));
+    }
+}
+

@@ -1,0 +1,82 @@
+package com.courseallocation.course_allocation.model;
+
+import java.time.LocalDateTime;
+
+import com.courseallocation.course_allocation.model.enums.RequestStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "enrollment_requests", uniqueConstraints = {
+    @UniqueConstraint(columnNames = {"student_id", "course_id"})
+})
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class EnrollmentRequest {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "student_id", nullable = false)
+    @JsonIgnore
+    private Student student;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "course_id", nullable = false)
+    @JsonIgnore
+    private Course course;
+
+    @Column(nullable = false)
+    private LocalDateTime requestDate;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private RequestStatus status = RequestStatus.PENDING;
+
+    private Integer priority; // Calculated by system
+
+    @Column(columnDefinition = "TEXT")
+    private String validationErrors; // JSON string of validation errors
+
+    @Column(columnDefinition = "TEXT")
+    private String rejectionReason;
+
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
+        if (requestDate == null) {
+            requestDate = LocalDateTime.now();
+        }
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
+}
