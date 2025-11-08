@@ -3,8 +3,10 @@ package com.courseallocation.course_allocation.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -122,6 +124,37 @@ public class StudentPortalController {
             Student student = authenticationService.getStudentByToken(token);
             TranscriptResponse transcript = studentPortalService.getTranscript(student.getId());
             return ResponseEntity.ok(new ApiResponse<>(true, "Transcript generated", transcript));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest()
+                    .body(new ApiResponse<>(false, e.getMessage(), null));
+        }
+    }
+
+    @GetMapping("/enrollments/history")
+    @Operation(summary = "View enrollment history", description = "Get complete enrollment history with all statuses and grades")
+    public ResponseEntity<ApiResponse<List<EnrollmentResponse>>> getEnrollmentHistory(
+            @RequestHeader("Authorization") String authHeader) {
+        try {
+            String token = authHeader.substring(7);
+            Student student = authenticationService.getStudentByToken(token);
+            List<EnrollmentResponse> history = enrollmentService.getStudentEnrollments(student.getId());
+            return ResponseEntity.ok(new ApiResponse<>(true, "Enrollment history retrieved", history));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest()
+                    .body(new ApiResponse<>(false, e.getMessage(), null));
+        }
+    }
+
+    @PostMapping("/enrollments/{enrollmentId}/drop")
+    @Operation(summary = "Drop enrolled course", description = "Drop a course that student is currently enrolled in")
+    public ResponseEntity<ApiResponse<Void>> dropCourse(
+            @RequestHeader("Authorization") String authHeader,
+            @PathVariable Long enrollmentId) {
+        try {
+            String token = authHeader.substring(7);
+            Student student = authenticationService.getStudentByToken(token);
+            enrollmentService.dropEnrollment(enrollmentId);
+            return ResponseEntity.ok(new ApiResponse<>(true, "Course dropped successfully", null));
         } catch (Exception e) {
             return ResponseEntity.badRequest()
                     .body(new ApiResponse<>(false, e.getMessage(), null));
