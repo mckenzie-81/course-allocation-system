@@ -722,3 +722,8 @@ This project is for educational purposes.
 **Version**: 2.0  
 **Last Updated**: November 2025  
 **Documentation**: Complete system implementation guide
+
+
+run with
+`bash
+java -jar target/course-allocation-0.0.1-SNAPSHOT.jar
