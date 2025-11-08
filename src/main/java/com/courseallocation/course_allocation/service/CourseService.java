@@ -7,13 +7,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.courseallocation.course_allocation.dto.CourseRequest;
+import com.courseallocation.course_allocation.dto.CourseRequirementResponse;
 import com.courseallocation.course_allocation.dto.CourseResponse;
 import com.courseallocation.course_allocation.model.Course;
+import com.courseallocation.course_allocation.model.CourseRequirement;
 import com.courseallocation.course_allocation.model.Department;
 import com.courseallocation.course_allocation.model.Semester;
 import com.courseallocation.course_allocation.model.User;
 import com.courseallocation.course_allocation.model.enums.CourseStatus;
 import com.courseallocation.course_allocation.repository.CourseRepository;
+import com.courseallocation.course_allocation.repository.CourseRequirementRepository;
 import com.courseallocation.course_allocation.repository.DepartmentRepository;
 import com.courseallocation.course_allocation.repository.EnrollmentRepository;
 import com.courseallocation.course_allocation.repository.SemesterRepository;
@@ -31,6 +34,7 @@ public class CourseService {
     private final UserRepository userRepository;
     private final SemesterRepository semesterRepository;
     private final EnrollmentRepository enrollmentRepository;
+    private final CourseRequirementRepository courseRequirementRepository;
 
     public CourseResponse createCourse(CourseRequest request) {
         if (courseRepository.existsByCourseCode(request.getCourseCode())) {
@@ -149,6 +153,55 @@ public class CourseService {
             throw new RuntimeException("Course not found with id: " + id);
         }
         courseRepository.deleteById(id);
+    }
+
+    public List<CourseResponse> searchCourses(String query) {
+        // Search by title or course code
+        List<Course> courses = courseRepository.findByTitleContainingIgnoreCase(query);
+        
+        // Also search by course code if the query doesn't contain spaces
+        if (!query.contains(" ")) {
+            courseRepository.findByCourseCode(query.toUpperCase()).ifPresent(courses::add);
+        }
+        
+        return courses.stream()
+                .distinct()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
+    }
+
+    public List<CourseRequirementResponse> getCourseRequirements(Long courseId) {
+        // Verify course exists
+        courseRepository.findById(courseId)
+                .orElseThrow(() -> new RuntimeException("Course not found with id: " + courseId));
+
+        List<CourseRequirement> requirements = courseRequirementRepository.findByCourseId(courseId);
+        
+        return requirements.stream()
+                .map(req -> {
+                    CourseRequirementResponse response = new CourseRequirementResponse();
+                    response.setId(req.getId());
+                    response.setCourseId(req.getCourse().getId());
+                    response.setCourseCode(req.getCourse().getCourseCode());
+                    
+                    if (req.getPrerequisiteCourse() != null) {
+                        response.setPrerequisiteCourseId(req.getPrerequisiteCourse().getId());
+                        response.setPrerequisiteCourseCode(req.getPrerequisiteCourse().getCourseCode());
+                        response.setPrerequisiteCourseTitle(req.getPrerequisiteCourse().getTitle());
+                    }
+                    
+                    response.setMinGrade(req.getMinGrade());
+                    response.setMinCreditsCompleted(req.getMinCreditsCompleted());
+                    response.setRequiredYear(req.getRequiredYear());
+                    response.setRequiredProgram(req.getRequiredProgram());
+                    response.setMinGPA(req.getMinGPA());
+                    response.setRequirementType(req.getRequirementType().name());
+                    response.setIsMandatory(req.getIsMandatory());
+                    response.setDescription(req.getDescription());
+                    
+                    return response;
+                })
+                .collect(Collectors.toList());
     }
 
     private CourseResponse mapToResponse(Course course) {

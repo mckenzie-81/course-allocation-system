@@ -1,0 +1,193 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/Users/mckenzie/.m2/wrapper/dists/apache-maven-3.9.11/a2d47e15/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.courseallocation:course-allocation >---------------
+[INFO] Building course-allocation 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.7:run (default-cli) > test-compile @ course-allocation >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ course-allocation ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ course-allocation ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ course-allocation ---
+[INFO] skip non existing resourceDirectory /Users/mckenzie/Desktop/projects/dr/course-selection-server/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ course-allocation ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:3.5.7:run (default-cli) < test-compile @ course-allocation <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.5.7:run (default-cli) @ course-allocation ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.7)
+
+2025-11-08T00:19:29.572Z  INFO 88291 --- [course-allocation] [  restartedMain] c.c.c.CourseAllocationApplication        : Starting CourseAllocationApplication using Java 24.0.1 with PID 88291 (/Users/mckenzie/Desktop/projects/dr/course-selection-server/target/classes started by mckenzie in /Users/mckenzie/Desktop/projects/dr/course-selection-server)
+2025-11-08T00:19:29.577Z  INFO 88291 --- [course-allocation] [  restartedMain] c.c.c.CourseAllocationApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-11-08T00:19:29.696Z  INFO 88291 --- [course-allocation] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-08T00:19:29.697Z  INFO 88291 --- [course-allocation] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-08T00:19:32.587Z  INFO 88291 --- [course-allocation] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-08T00:19:32.765Z  INFO 88291 --- [course-allocation] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 146 ms. Found 7 JPA repository interfaces.
+2025-11-08T00:19:34.207Z  INFO 88291 --- [course-allocation] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-08T00:19:34.251Z  INFO 88291 --- [course-allocation] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-08T00:19:34.251Z  INFO 88291 --- [course-allocation] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-11-08T00:19:34.343Z  INFO 88291 --- [course-allocation] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-08T00:19:34.344Z  INFO 88291 --- [course-allocation] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4647 ms
+2025-11-08T00:19:34.758Z  INFO 88291 --- [course-allocation] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-08T00:19:35.010Z  INFO 88291 --- [course-allocation] [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-11-08T00:19:35.137Z  INFO 88291 --- [course-allocation] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-08T00:19:36.230Z  INFO 88291 --- [course-allocation] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-08T00:19:36.310Z  INFO 88291 --- [course-allocation] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-08T00:19:36.903Z  INFO 88291 --- [course-allocation] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@15c1a605
+2025-11-08T00:19:36.906Z  INFO 88291 --- [course-allocation] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-08T00:19:37.007Z  WARN 88291 --- [course-allocation] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-08T00:19:37.048Z  INFO 88291 --- [course-allocation] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 18.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-08T00:19:39.863Z  INFO 88291 --- [course-allocation] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-08T00:19:40.089Z  INFO 88291 --- [course-allocation] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-08T00:19:41.297Z  WARN 88291 --- [course-allocation] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-08T00:19:41.670Z  WARN 88291 --- [course-allocation] [  restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 88908fc8-46b3-42de-a3aa-ce387c3afc69
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-08T00:19:41.697Z  INFO 88291 --- [course-allocation] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-08T00:19:42.651Z  INFO 88291 --- [course-allocation] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-08T00:19:42.698Z  INFO 88291 --- [course-allocation] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-08T00:19:42.710Z  INFO 88291 --- [course-allocation] [  restartedMain] c.c.c.CourseAllocationApplication        : Started CourseAllocationApplication in 14.233 seconds (process running for 15.224)
+2025-11-08T00:21:07.817Z  INFO 88291 --- [course-allocation] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-08T00:21:07.819Z  INFO 88291 --- [course-allocation] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-08T00:21:07.821Z  INFO 88291 --- [course-allocation] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-11-08T00:21:10.222Z  INFO 88291 --- [course-allocation] [nio-8080-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 1165 ms
+2025-11-08T00:22:54.213Z  INFO 88291 --- [course-allocation] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 4 class path changes (0 additions, 0 deletions, 4 modifications)
+2025-11-08T00:22:54.269Z  INFO 88291 --- [course-allocation] [       Thread-5] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-08T00:22:54.294Z  INFO 88291 --- [course-allocation] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-08T00:22:54.311Z  INFO 88291 --- [course-allocation] [       Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-08T00:22:54.339Z  INFO 88291 --- [course-allocation] [       Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-08T00:22:54.347Z  INFO 88291 --- [course-allocation] [       Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.7)
+
+2025-11-08T00:22:55.167Z  INFO 88291 --- [course-allocation] [  restartedMain] c.c.c.CourseAllocationApplication        : Starting CourseAllocationApplication using Java 24.0.1 with PID 88291 (/Users/mckenzie/Desktop/projects/dr/course-selection-server/target/classes started by mckenzie in /Users/mckenzie/Desktop/projects/dr/course-selection-server)
+2025-11-08T00:22:55.168Z  INFO 88291 --- [course-allocation] [  restartedMain] c.c.c.CourseAllocationApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-11-08T00:22:56.871Z  INFO 88291 --- [course-allocation] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-08T00:22:57.122Z  INFO 88291 --- [course-allocation] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 248 ms. Found 7 JPA repository interfaces.
+2025-11-08T00:22:59.274Z  INFO 88291 --- [course-allocation] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-08T00:22:59.284Z  INFO 88291 --- [course-allocation] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-08T00:22:59.285Z  INFO 88291 --- [course-allocation] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-11-08T00:22:59.371Z  INFO 88291 --- [course-allocation] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-08T00:22:59.372Z  INFO 88291 --- [course-allocation] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4186 ms
+2025-11-08T00:22:59.781Z  INFO 88291 --- [course-allocation] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-08T00:22:59.790Z  INFO 88291 --- [course-allocation] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-08T00:22:59.848Z  INFO 88291 --- [course-allocation] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-08T00:22:59.850Z  INFO 88291 --- [course-allocation] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-11-08T00:23:00.782Z  INFO 88291 --- [course-allocation] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@bdd907
+2025-11-08T00:23:00.783Z  INFO 88291 --- [course-allocation] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-11-08T00:23:00.789Z  WARN 88291 --- [course-allocation] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-08T00:23:00.799Z  INFO 88291 --- [course-allocation] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 18.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-08T00:23:01.866Z  INFO 88291 --- [course-allocation] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-08T00:23:02.262Z  INFO 88291 --- [course-allocation] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-08T00:23:02.696Z  WARN 88291 --- [course-allocation] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-08T00:23:02.884Z  WARN 88291 --- [course-allocation] [  restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 7301b773-69e8-4090-9aba-879cdf79ed9d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-08T00:23:02.886Z  INFO 88291 --- [course-allocation] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-08T00:23:03.101Z  INFO 88291 --- [course-allocation] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-08T00:23:03.118Z  INFO 88291 --- [course-allocation] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-08T00:23:03.126Z  INFO 88291 --- [course-allocation] [  restartedMain] c.c.c.CourseAllocationApplication        : Started CourseAllocationApplication in 8.077 seconds (process running for 215.633)
+2025-11-08T00:23:03.129Z  INFO 88291 --- [course-allocation] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-11-08T00:23:04.517Z  INFO 88291 --- [course-allocation] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 8 class path changes (0 additions, 0 deletions, 8 modifications)
+2025-11-08T00:23:04.518Z  INFO 88291 --- [course-allocation] [       Thread-7] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-08T00:23:04.522Z  INFO 88291 --- [course-allocation] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-08T00:23:04.526Z  INFO 88291 --- [course-allocation] [       Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-08T00:23:04.526Z  INFO 88291 --- [course-allocation] [       Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-11-08T00:23:04.529Z  INFO 88291 --- [course-allocation] [       Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.7)
+
+2025-11-08T00:23:04.653Z  INFO 88291 --- [course-allocation] [  restartedMain] c.c.c.CourseAllocationApplication        : Starting CourseAllocationApplication using Java 24.0.1 with PID 88291 (/Users/mckenzie/Desktop/projects/dr/course-selection-server/target/classes started by mckenzie in /Users/mckenzie/Desktop/projects/dr/course-selection-server)
+2025-11-08T00:23:04.653Z  INFO 88291 --- [course-allocation] [  restartedMain] c.c.c.CourseAllocationApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-11-08T00:23:04.907Z  INFO 88291 --- [course-allocation] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-08T00:23:04.933Z  INFO 88291 --- [course-allocation] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 7 JPA repository interfaces.
+2025-11-08T00:23:05.119Z  INFO 88291 --- [course-allocation] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-08T00:23:05.120Z  INFO 88291 --- [course-allocation] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-08T00:23:05.120Z  INFO 88291 --- [course-allocation] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-11-08T00:23:05.135Z  INFO 88291 --- [course-allocation] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-08T00:23:05.135Z  INFO 88291 --- [course-allocation] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 480 ms
+2025-11-08T00:23:05.236Z  INFO 88291 --- [course-allocation] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-08T00:23:05.238Z  INFO 88291 --- [course-allocation] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-08T00:23:05.250Z  INFO 88291 --- [course-allocation] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-08T00:23:05.251Z  INFO 88291 --- [course-allocation] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2025-11-08T00:23:05.305Z  INFO 88291 --- [course-allocation] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@e52116a
+2025-11-08T00:23:05.305Z  INFO 88291 --- [course-allocation] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2025-11-08T00:23:05.315Z  WARN 88291 --- [course-allocation] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-08T00:23:05.319Z  INFO 88291 --- [course-allocation] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+	Database driver: undefined/unknown
+	Database version: 18.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-08T00:23:05.650Z  INFO 88291 --- [course-allocation] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-08T00:23:05.861Z  INFO 88291 --- [course-allocation] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-08T00:23:06.201Z  WARN 88291 --- [course-allocation] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-08T00:23:06.299Z  WARN 88291 --- [course-allocation] [  restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 111cd92e-2abe-4130-b80e-1eb57ff12593
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-08T00:23:06.300Z  INFO 88291 --- [course-allocation] [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-08T00:23:06.442Z  INFO 88291 --- [course-allocation] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-08T00:23:06.455Z  INFO 88291 --- [course-allocation] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-08T00:23:06.460Z  INFO 88291 --- [course-allocation] [  restartedMain] c.c.c.CourseAllocationApplication        : Started CourseAllocationApplication in 1.83 seconds (process running for 218.967)
+2025-11-08T00:23:06.462Z  INFO 88291 --- [course-allocation] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged

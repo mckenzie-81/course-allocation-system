@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.*;
 
 import com.courseallocation.course_allocation.dto.ApiResponse;
 import com.courseallocation.course_allocation.dto.CourseRequest;
+import com.courseallocation.course_allocation.dto.CourseRequirementResponse;
 import com.courseallocation.course_allocation.dto.CourseResponse;
+import com.courseallocation.course_allocation.dto.EnrollmentResponse;
 import com.courseallocation.course_allocation.service.CourseService;
+import com.courseallocation.course_allocation.service.EnrollmentService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -23,6 +26,7 @@ import lombok.RequiredArgsConstructor;
 public class CourseController {
 
     private final CourseService courseService;
+    private final EnrollmentService enrollmentService;
 
     @PostMapping
     @Operation(summary = "Create a new course")
@@ -67,5 +71,55 @@ public class CourseController {
     public ResponseEntity<ApiResponse<Void>> deleteCourse(@PathVariable Long id) {
         courseService.deleteCourse(id);
         return ResponseEntity.ok(new ApiResponse<>(true, "Course deleted successfully", null));
+    }
+
+    @GetMapping("/{id}/requirements")
+    @Operation(summary = "Get course requirements", description = "Get all prerequisites and requirements for a course")
+    public ResponseEntity<ApiResponse<List<CourseRequirementResponse>>> getCourseRequirements(@PathVariable Long id) {
+        try {
+            List<CourseRequirementResponse> requirements = courseService.getCourseRequirements(id);
+            return ResponseEntity.ok(new ApiResponse<>(true, "Requirements retrieved successfully", requirements));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest()
+                    .body(new ApiResponse<>(false, e.getMessage(), null));
+        }
+    }
+
+    @GetMapping("/{id}/enrollments")
+    @Operation(summary = "Get all enrollments for a course", description = "View all students enrolled in a specific course")
+    public ResponseEntity<ApiResponse<List<EnrollmentResponse>>> getCourseEnrollments(@PathVariable Long id) {
+        try {
+            List<EnrollmentResponse> enrollments = enrollmentService.getCourseEnrollments(id);
+            return ResponseEntity.ok(new ApiResponse<>(true, "Enrollments retrieved successfully", enrollments));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest()
+                    .body(new ApiResponse<>(false, e.getMessage(), null));
+        }
+    }
+
+    @GetMapping("/search")
+    @Operation(summary = "Search courses", description = "Search courses by title, code, or department")
+    public ResponseEntity<ApiResponse<List<CourseResponse>>> searchCourses(
+            @RequestParam(required = false) String query,
+            @RequestParam(required = false) Long departmentId,
+            @RequestParam(required = false) Long semesterId) {
+        try {
+            List<CourseResponse> courses;
+            
+            if (departmentId != null) {
+                courses = courseService.getCoursesByDepartmentId(departmentId);
+            } else if (semesterId != null) {
+                courses = courseService.getCoursesBySemesterId(semesterId);
+            } else if (query != null && !query.isEmpty()) {
+                courses = courseService.searchCourses(query);
+            } else {
+                courses = courseService.getAllCourses();
+            }
+            
+            return ResponseEntity.ok(new ApiResponse<>(true, "Search completed successfully", courses));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest()
+                    .body(new ApiResponse<>(false, e.getMessage(), null));
+        }
     }
 }

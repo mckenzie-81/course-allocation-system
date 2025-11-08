@@ -10,7 +10,6 @@ import com.courseallocation.course_allocation.dto.EnrollmentResponse;
 import com.courseallocation.course_allocation.model.Course;
 import com.courseallocation.course_allocation.model.Enrollment;
 import com.courseallocation.course_allocation.model.Student;
-import com.courseallocation.course_allocation.model.User;
 import com.courseallocation.course_allocation.model.enums.EnrollmentStatus;
 import com.courseallocation.course_allocation.repository.CourseRepository;
 import com.courseallocation.course_allocation.repository.EnrollmentRepository;
